@@ -1,15 +1,26 @@
+var express = require('express');
 var teamsController = express.Router();
-var YahooFantasy = require('yahoo-fantasy');	
-
+var YahooFantasy = require('yahoo-fantasy');
 
 
 var yf = new YahooFantasy(
-	process.env.YAHOO_CONSUMER_KEY,
-	process.env.YAHOO_CONSUMER_SECRET,
-	);
+	'dj0yJmk9Wjl3TGVJRUI5aVpiJmQ9WVdrOVVGWXhSMnQxTldFbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD03NQ--',
+	'063bb0db7bed067d504efb0c07743581b03b8e83'
+);
 
-yf.('http://fantasysports.yahooapis.com/fantasy/v2/team/' + '238.l.627060.t.8' + '/roster/players?format=json')	
-	.then(function(err, data) {
-		console.log(err);
-		console.log(data);
-	});
+var team_key = '238.l.627060.t.8';
+function getPlayers(req, res) {
+	yf.roster.players(team_key,
+		function(err, data){
+			if (err) {
+				console.log(err);
+			} else {
+				console.log(data);
+			}
+			console.log(data);
+			console.log(err);
+			res.send(data);
+		});
+}
+
+module.exports = teamsController;
