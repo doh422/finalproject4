@@ -8,8 +8,11 @@ function MainRouter($stateProvider, $urlRouterProvider) {
 		.state('roster', {
 			url: '/',
 			templateUrl: 'roster.html'
-		});
-		
+		})
+		.state('show', {
+			url: '/show',
+			templateUrl: 'show.html'
+		})
 
 	$urlRouterProvider.otherwise("/");
 

@@ -20,12 +20,15 @@ function TeamsController($http) {
 	}
 	getTeam();
 
+	this.player = {};
+
 	this.getPlayer = getPlayer;
 	function getPlayer() {
 		$http.get('http://localhost:3000/api/player')
 		.success(function(data) {
 			console.log(data);
-			return data;
+			self.player = data;
+			return self.player;
 		});
 	}
 	getPlayer();
