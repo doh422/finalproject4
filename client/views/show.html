@@ -1,8 +1,16 @@
-<main ng-repeat="n in teams.player">
+<main>
 
-	<h1>{{n.full}}</h1>
+	<h1>{{teams.player.name.full}} - {{teams.player.display_position}}, {{teams.player.editorial_team_full_name}}</h1>
 	<br/>
-	
+	<img src="{{teams.player.headshot.url}}">
+	<br/>
+	<h2>Stats</h2>
+	<br/>
+	<ul ng-repeat="n in teams.stats">
+		<li>{{n.stat_id}} - {{n.value}}</li>
+	</ul>
+
+
 
 
 </main>

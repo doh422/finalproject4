@@ -21,6 +21,7 @@ function TeamsController($http) {
 	getTeam();
 
 	this.player = {};
+	this.stats = [];
 
 	this.getPlayer = getPlayer;
 	function getPlayer() {
@@ -28,6 +29,8 @@ function TeamsController($http) {
 		.success(function(data) {
 			console.log(data);
 			self.player = data;
+			self.stats = data.stats.stats;
+			console.log(self.stats);
 			return self.player;
 		});
 	}
