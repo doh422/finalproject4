@@ -1,13 +1,16 @@
+require('dotenv').load();
+
 var express = require('express');
 var teamsController = express.Router();
 var YahooFantasy = require('yahoo-fantasy');
 
-
+//api oauth
 var yf = new YahooFantasy(
-	'dj0yJmk9Wjl3TGVJRUI5aVpiJmQ9WVdrOVVGWXhSMnQxTldFbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD03NQ--',
-	'063bb0db7bed067d504efb0c07743581b03b8e83'
+	process.env.YAHOO_CONSUMER_KEY,
+	process.env.YAHOO_CONSUMER_SECRET
 );
 
+//api call
 var team_key = '238.l.627060.t.8';
 function getPlayers(req, res) {
 	yf.roster.players(team_key,

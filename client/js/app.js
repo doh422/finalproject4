@@ -1,1 +1,1 @@
-angular.module('finalProject', []);
+angular.module('finalProject', ['ngResource']);
