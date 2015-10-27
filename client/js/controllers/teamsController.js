@@ -11,10 +11,10 @@ function TeamsController($http) {
 	this.getTeam = getTeam;
 
 	function getTeam() {
-		$http.get('http://localhost:3000/')
+		$http.get('http://localhost:3000/api')
 		.success(function(data) {
-			console.log(data);
-			return data;
+			console.log(data.roster);
+			return data.roster;
 		});
 	}
 
