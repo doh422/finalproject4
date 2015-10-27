@@ -5,6 +5,9 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var YahooFantasy = require('yahoo-fantasy');
 var teamsController = require('./server/controllers/teamsController.js');
+var cors = require('cors');
+
+app.use(cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));

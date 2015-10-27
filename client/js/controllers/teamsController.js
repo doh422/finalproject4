@@ -13,8 +13,9 @@ function TeamsController($http) {
 	function getTeam() {
 		$http.get('http://localhost:3000/api')
 		.success(function(data) {
-			console.log(data.roster);
-			return data.roster;
+			console.log(data);
+			self.all = data.roster;
+			return self.all;
 		});
 	}
 

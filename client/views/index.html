@@ -10,17 +10,20 @@
 	<script src="/js/controllers/teamsController.js"></script>
 
 </head>
-<body ng-controller="TeamsController">
+<body ng-controller="TeamsController as teams">
 
 	{{2+2}}
+
 
 	<form>
 		<input type="text" placeholder="Search...">
 		<button type="submit">Search</button>
 	</form>
 
-	<ul ng-repeat="roster in teamsController.all">
-		<li>{{roster}}</li>
+	<div>{{data.roster}}</div>
+
+	<ul id="roster">
+		<li ng-repeat="n in teams.all">{{n.name.full}}</li>
 	</ul>
 
 </body>
