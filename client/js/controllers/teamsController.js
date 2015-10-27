@@ -18,7 +18,15 @@ function TeamsController($http) {
 			return self.all;
 		});
 	}
-
 	getTeam();
 
+	this.getPlayer = getPlayer;
+	function getPlayer() {
+		$http.get('http://localhost:3000/api/player')
+		.success(function(data) {
+			console.log(data);
+			return data
+		});
+	}
+	getPlayer();
 }

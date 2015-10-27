@@ -23,7 +23,7 @@
 	<div>{{data.roster}}</div>
 
 	<ul id="roster">
-		<li ng-repeat="n in teams.all">{{n.name.full}}</li>
+		<li ng-repeat="n in teams.all">{{n.name.full}} - <img src="{{n.headshot.url}}"></li>
 	</ul>
 
 </body>

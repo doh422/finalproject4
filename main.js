@@ -22,7 +22,7 @@ var yf = new YahooFantasy(
 app.get('/api', function(req, res) {
 	var team_key = '238.l.627060.t.8';
 
-		yf.roster.players(team_key,
+	yf.roster.players(team_key,
 		function(err, data){
 			if (err) {
 				console.log(err);
@@ -33,8 +33,23 @@ app.get('/api', function(req, res) {
 			console.log(err);
 			res.send(data);
 		});
-	// res.sendFile(__dirname + '/client/views/index.html');
 });
+
+app.get('api/player', function(req, res) {
+	var player_key = '328.p.6619';
+
+	yf.player.stats(player_key,
+		function(err, data){
+			if (err) {
+				console.log(err);
+			} else {
+				console.log(data);
+			}
+			console.log(data);
+			res.send(data);
+		});
+});
+
 
 app.get('/', function (req, res) {
 	res.sendFile(__dirname + '/client/views/index.html');
