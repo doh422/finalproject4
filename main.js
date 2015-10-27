@@ -19,7 +19,7 @@ var yf = new YahooFantasy(
 app.get('/', function(req, res) {
 	var team_key = '238.l.627060.t.8';
 
-		yf.player.stats(team_key,
+		yf.roster.players(team_key,
 		function(err, data){
 			if (err) {
 				console.log(err);
@@ -30,7 +30,7 @@ app.get('/', function(req, res) {
 			console.log(err);
 			res.send(data);
 		});
-// 	res.sendFile(__dirname + '/client/views/index.html');
+	// res.sendFile(__dirname + '/client/views/index.html');
 });
 
 //shortcut to reference files inside client/js
