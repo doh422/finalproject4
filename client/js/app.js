@@ -1,13 +1,16 @@
-angular.module('finalProject', ['ngResource', 'ui.router'])
+angular.module('finalProject', ['ui.router'])
 	.config(MainRouter);
 
 
 function MainRouter($stateProvider, $urlRouterProvider) {
 
 	$stateProvider
-		.state('show', {
-			url: '/show',
-			templateUrl: 'show.html'
+		.state('roster', {
+			url: '/',
+			templateUrl: 'roster.html'
 		});
+		
+
+	$urlRouterProvider.otherwise("/");
 
 }

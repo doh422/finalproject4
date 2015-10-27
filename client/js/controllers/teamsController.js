@@ -25,7 +25,7 @@ function TeamsController($http) {
 		$http.get('http://localhost:3000/api/player')
 		.success(function(data) {
 			console.log(data);
-			return data
+			return data;
 		});
 	}
 	getPlayer();

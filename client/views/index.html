@@ -21,11 +21,7 @@
 		<button type="submit">Search</button>
 	</form>
 
-	<div>{{data.roster}}</div>
-
-	<ul id="roster">
-		<li ng-repeat="n in teams.all">{{n.name.full}} - <img src="{{n.headshot.url}}"></li>
-	</ul>
+	<div ui-view></div>
 
 </body>
 </html>

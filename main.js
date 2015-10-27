@@ -35,7 +35,7 @@ app.get('/api', function(req, res) {
 		});
 });
 
-app.get('api/player', function(req, res) {
+app.get('/api/player', function(req, res) {
 	var player_key = '328.p.6619';
 
 	yf.player.stats(player_key,
