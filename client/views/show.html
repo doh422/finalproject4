@@ -6,11 +6,16 @@
 	<br/>
 	<h2>Stats</h2>
 	<br/>
-	<ul ng-repeat="n in teams.stats">
-		<li>{{n.stat_id}} - {{n.value}}</li>
-	</ul>
 
-
+	<table class="table table-bordered">
+		<tr>q</tr>
+		<tr>
+			<td ng-repeat="n in teams.stats">{{n.stat_id}}</td>
+		</tr>
+		<tr>
+			<td ng-repeat="n in teams.stats">{{n.value}}</td>
+		</tr>
+	</table>
 
 
 </main>
