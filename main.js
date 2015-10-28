@@ -18,10 +18,9 @@ var yf = new YahooFantasy(
 	'063bb0db7bed067d504efb0c07743581b03b8e83'
 );
 
+team_key = '238.l.627060.t.8';
 
 app.get('/api', function(req, res) {
-	var team_key = '238.l.627060.t.8';
-
 	yf.roster.players(team_key,
 		function(err, data){
 			if (err) {
@@ -29,8 +28,6 @@ app.get('/api', function(req, res) {
 			} else {
 				console.log(data);
 			}
-			console.log(data);
-			console.log(err);
 			res.send(data);
 		});
 });
@@ -46,6 +43,18 @@ app.get('/api/player', function(req, res) {
 				console.log(data);
 			}
 			console.log(data);
+			res.send(data);
+		});
+});
+
+app.get('/api/teamstats', function(req, res) {
+	yf.team.stats(team_key,
+		function(err, data) {
+			if (err) {
+				console.log(err);
+			} else {
+				console.log(data);
+			}
 			res.send(data);
 		});
 });

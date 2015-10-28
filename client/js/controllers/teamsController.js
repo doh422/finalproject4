@@ -35,4 +35,9 @@ function TeamsController($http) {
 		});
 	}
 	getPlayer();
+
+	this.teamStats = teamStats;
+	function teamStats() {
+		
+	}
 }
