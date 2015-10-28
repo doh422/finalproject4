@@ -55,6 +55,7 @@ app.get('/api/teamstats', function(req, res) {
 			} else {
 				console.log(data);
 			}
+			console.log(data);
 			res.send(data);
 		});
 });

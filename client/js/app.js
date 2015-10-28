@@ -15,6 +15,10 @@ function MainRouter($stateProvider, $urlRouterProvider) {
 			url: '/show',
 			templateUrl: 'show.html'
 		})
+		.state('team', {
+			url: '/team',
+			templateUrl: 'team.html'
+		})
 
 	$urlRouterProvider.otherwise("/");
 

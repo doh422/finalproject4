@@ -41,9 +41,10 @@ function TeamsController($http) {
 	function teamStats() {
 		$http.get('http://localhost:3000/api/teamstats')
 		.success(function(data) {
-			console.log(data);
-			self.production = data;
+			console.log(data.stats.team_stats.stats);
+			self.production = data.stats.team_stats.stats;
 			return self.production;
 		});
 	}
+	teamStats();
 }
