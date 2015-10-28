@@ -10,7 +10,7 @@
 	<table class="table table-bordered">
 		<tr>q</tr>
 		<tr>
-			<td ng-repeat="n in teams.stats">{{n.stat_id}}</td>
+			<td ng-repeat="n in teams.stats">{{teams.category.stat_categories[n.stat_id].display_name}}</td>
 		</tr>
 		<tr>
 			<td ng-repeat="n in teams.stats">{{n.value}}</td>

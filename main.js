@@ -6,10 +6,10 @@ var mongoose = require('mongoose');
 var YahooFantasy = require('yahoo-fantasy');
 var teamsController = require('./server/controllers/teamsController.js');
 var cors = require('cors');
-var d3 = require('d3'),
-	jsdom = require('jsdom');
-var document = jsdom.jsdom(),
-	svg = d3.select(document.body).append('svg');
+// var d3 = require('d3'),
+// 	jsdom = require('jsdom');
+// var document = jsdom.jsdom(),
+// 	svg = d3.select(document.body).append('svg');
 
 app.use(cors());
 
@@ -54,6 +54,19 @@ app.get('/api/player', function(req, res) {
 app.get('/api/teamstats', function(req, res) {
 	yf.team.stats(team_key,
 		function(err, data) {
+			if (err) {
+				console.log(err);
+			} else {
+				console.log(data);
+			}
+			console.log(data);
+			res.send(data);
+		});
+});
+
+app.get('/api/category', function(req, res) {
+	yf.game.stat_categories('mlb',
+		function (err, data) {
 			if (err) {
 				console.log(err);
 			} else {

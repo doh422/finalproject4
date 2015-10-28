@@ -1,13 +1,16 @@
 <h1>team stat page</h1>
 
 
-
 	<table class="table table-bordered">
 		<tr>{{2+2}}</tr>
 		<tr>
-			<td ng-repeat="n in teams.production">{{n.stat.stat_id}}</td>
+			<td ng-repeat="n in teams.production">{{teams.category.stat_categories[n.stat.stat_id].display_name}}</td>
 		</tr>
 		<tr>
 			<td ng-repeat="n in teams.production">{{n.stat.value}}</td>
 		</tr>
 	</table>
+
+	<section>
+
+	</section>

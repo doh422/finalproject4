@@ -47,4 +47,16 @@ function TeamsController($http) {
 		});
 	}
 	teamStats();
+
+	this.cateogy = [];
+	this.getCategory = getCategory;
+	function getCategory() {
+		$http.get('http://localhost:3000/api/category')
+		.success(function(data) {
+			console.log(data);
+			self.category = data;
+			return self.category;
+		});
+	}
+	getCategory();
 }
