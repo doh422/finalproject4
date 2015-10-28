@@ -6,6 +6,10 @@ var mongoose = require('mongoose');
 var YahooFantasy = require('yahoo-fantasy');
 var teamsController = require('./server/controllers/teamsController.js');
 var cors = require('cors');
+var d3 = require('d3'),
+	jsdom = require('jsdom');
+var document = jsdom.jsdom(),
+	svg = d3.select(document.body).append('svg');
 
 app.use(cors());
 
