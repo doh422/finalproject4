@@ -30,14 +30,20 @@ function TeamsController($http) {
 			console.log(data);
 			self.player = data;
 			self.stats = data.stats.stats;
-			console.log(self.stats);
 			return self.player;
 		});
 	}
 	getPlayer();
 
+	this.production = [];
+
 	this.teamStats = teamStats;
 	function teamStats() {
-		
+		$http.get('http://localhost:3000/api/teamstats')
+		.success(function(data) {
+			console.log(data);
+			self.production = data;
+			return self.production;
+		});
 	}
 }
