@@ -1,6 +1,8 @@
 angular.module('finalProject', ['ui.router'])
 	.config(MainRouter);
 
+//using UI Router to enable switching out states (similar to partials)
+//quicker performance
 
 function MainRouter($stateProvider, $urlRouterProvider) {
 
