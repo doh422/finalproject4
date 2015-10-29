@@ -70,9 +70,11 @@ function TeamsController($http, $q) {
 	}
 	getCategory();
 
+
+
 	this.getGraph = getGraph;
-	function getGraph() {
-		var dataArray = [5,40,50,60];
+	function getGraph(stats, statsFourteen, statsThirteen) {
+		var dataArray = [30,40,50,60];
 
 		var width = 500;
 		var height = 500;
@@ -96,7 +98,7 @@ function TeamsController($http, $q) {
 			.scale(widthScale);
 
 		//first establish canvas to draw on
-		var canvas = d3.select("graph")
+		var canvas = d3.selectAll("body")
 			.append("svg")
 			.attr("width", width)
 			.attr("height", height)
@@ -129,23 +131,23 @@ function TeamsController($http, $q) {
 			.attr("transform", "translate(0,400)")
 			.call(axis);
 
-		var circle = canvas.append("circle")
-			.attr("cx", 250)
-			.attr("cy", 250)
-			.attr("r", 50)
-			.attr("fill", "red");
+		// var circle = canvas.append("circle")
+		// 	.attr("cx", 250)
+		// 	.attr("cy", 250)
+		// 	.attr("r", 50)
+		// 	.attr("fill", "red");
 
 		var rectangle = canvas.append("rect")
 			.attr("width", 100)
 			.attr("height", 50);
 
-		var line = canvas.append("line")
-			.attr("x1", 0)
-			.attr("y1", 100)
-			.attr("x2", 400)
-			.attr("y2", 400)
-			.attr("stroke", "green")
-			.attr("stroke-width", 10);
+	// 	var line = canvas.append("line")
+	// 		.attr("x1", 0)
+	// 		.attr("y1", 100)
+	// 		.attr("x2", 400)
+	// 		.attr("y2", 400)
+	// 		.attr("stroke", "green")
+	// 		.attr("stroke-width", 10);
 	}
 	getGraph();
 

@@ -23,6 +23,7 @@ var yf = new YahooFantasy(
 );
 
 var team_key = "328.l.34014.t.1";
+var league_key = "328.l.34014";
 
 app.get('/api', function(req, res) {
 	yf.roster.players(team_key,
