@@ -78,6 +78,22 @@ app.get('/api/:player_key', function(req, res) {
 		});
 });
 
+//2014 stats
+app.get('/fourteen/:player_key', function(req, res) {
+	var player_key = req.params.player_key;
+	console.log(player_key);
+
+	yf.player.stats('328.p.'+player_key,
+		function(err, data) {
+			if (err) {
+				console.log(err);
+			} else {
+				console.log(data);
+			}
+			console.log(data);
+			res.send(data);
+		});
+});
 
 app.get('/', function (req, res) {
 	res.sendFile(__dirname + '/client/views/index.html');

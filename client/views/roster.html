@@ -1,6 +1,6 @@
 <h1>Roster</h1>
 
 	<ul id="roster">
-		<li ng-repeat="n in teams.all"><img src="{{n.headshot.url}}"> - <a href="">{{n.name.full}},
-		 {{n.eligible_positions[0]}}</a></li>
+		<li ng-repeat="n in teams.all"><img src="{{n.headshot.url}}"> - {{n.name.full}},
+		 {{n.eligible_positions[0]}} - {{n.player_id}}</li>
 	</ul>

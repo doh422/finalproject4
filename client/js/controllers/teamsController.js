@@ -1,9 +1,9 @@
 angular.module('finalProject')
 	.controller('TeamsController', TeamsController);
 
-TeamsController.$inject = ['$http'];
+TeamsController.$inject = ['$http', '$q'];
 
-function TeamsController($http) {
+function TeamsController($http, $q) {
 
 	var self = this;
 
@@ -24,16 +24,31 @@ function TeamsController($http) {
 	this.stats = [];
 	this.playerName;
 
+	this.statsFourteen = [];
+	this.fifteen;
+	this.fourteen;
+
+
 	this.getPlayer = getPlayer;
 	function getPlayer() {
 		console.log(self.playerName);
-		$http.get('http://localhost:3000/api/' + self.playerName)
-		.success(function(data) {
-			console.log(data);
-			self.player = data;
-			self.stats = data.stats.stats;
-			return self.player;
+		self.fifteen = $http.get('http://localhost:3000/api/' + self.playerName, {cache: false});
+		self.fourteen = $http.get('http://localhost:3000/fourteen/' + self.playerName, {cache: false});
+		console.log('orig');
+		console.log(self.fourteen);
+
+		$q.all([self.fifteen, self.fourteen]).then(function(data) {
+			self.stats = data[0];
+			self.statsFourteen = data[1];
+			console.log(self.stats);
+			console.log(self.statsFourteen);
 		});
+		// .success(function(data) {
+		// 	console.log(data);
+		// 	self.player = data;
+		// 	self.stats = data.stats.stats;
+		// 	return self.player;
+		// });
 	}
 	getPlayer();
 
@@ -61,4 +76,17 @@ function TeamsController($http) {
 		});
 	}
 	getCategory();
+
+	// this.statsFourteen = [];
+	// this.getFourteen = getFourteen;
+	// function getFourteen() {
+	// 	console.log(self.playerName);
+	// 	$http.get('http://localhost:3000/api/fourteen/' + self.playerName)
+	// 	.success(function(data) {
+	// 		console.log(data);
+	// 		self.statsFourteen = data;
+	// 		return self.statsFourteen;
+	// 	});
+	// }
+	// getFourteen();
 }
