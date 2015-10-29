@@ -36,8 +36,8 @@ function TeamsController($http, $q) {
 
 		$q.all([self.fifteen, self.fourteen]).then(function(data) {
 			self.player = data[0].data;
-			self.stats = data[0].data.stats;
-			self.statsFourteen = data[1].data.stats;
+			self.stats = data[0].data.stats.stats;
+			self.statsFourteen = data[1].data.stats.stats;
 			console.log(self.stats);
 			console.log(self.statsFourteen);
 		});
