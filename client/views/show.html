@@ -14,18 +14,21 @@
 	<br/>
 
 	<table class="table table-bordered">
-		<tr>{{teams.player.stats.coverage_value}}</tr>
 		<tr>
+			<td>Year</td>
 			<td ng-repeat="n in teams.stats">{{teams.category.stat_categories[n.stat_id].display_name}}</td>
 		</tr>
 		<tr>
+			<td>{{teams.player.stats.coverage_value}}</td>
 			<td ng-repeat="n in teams.stats">{{n.value}}</td>
 		</tr>
-
-		<tr>{{teams.player.stats.coverage_value}}-1</tr>
-
 		<tr>
+			<td>{{teams.player.stats.coverage_value-1}}</td>
 			<td ng-repeat="n in teams.statsFourteen">{{n.value}}</td>
+		</tr>
+		<tr>
+			<td>{{teams.player.stats.coverage_value-2}}</td>
+			<td ng-repeat="n in teams.statsThirteen">{{n.value}}</td>
 		</tr>
 	</table>
 

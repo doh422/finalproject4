@@ -93,6 +93,21 @@ app.get('/fourteen/:player_key', function(req, res) {
 			console.log(data);
 			res.send(data);
 		});
+
+//2013 stats
+app.get('/thirteen/:player_key', function(req, res) {
+	var player_key = req.params.player_key;
+
+	yf.player.stats('308.p.' + player_key,
+		function(err, data) {
+			if (err) {
+				console.log(err);
+			} else {
+				console.log(data);
+			}
+			res.send(data);
+		});
+})
 });
 
 app.get('/', function (req, res) {
