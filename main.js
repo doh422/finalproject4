@@ -23,10 +23,17 @@ var yf = new YahooFantasy(
 );
 
 var team_key = "328.l.34014.t.1";
+var teamArray = ["328.l.34014.t.1","328.l.34014.t.2","328.l.34014.t.3","328.l.34014.t.4","328.l.34014.t.5",
+"328.l.34014.t.6","328.l.34014.t.7","328.l.34014.t.8","328.l.34014.t.9","328.l.34014.t.10","328.l.34014.t.11",
+"328.l.34014.t.12"];
 var league_key = "328.l.34014";
 
 app.get('/api', function(req, res) {
-	yf.roster.players(team_key,
+
+	yf.players.teams(teamArray,
+	// yf.roster.players(team_key,
+
+
 		function(err, data){
 			if (err) {
 				console.log(err);

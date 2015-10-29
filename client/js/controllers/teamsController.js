@@ -7,18 +7,18 @@ function TeamsController($http, $q) {
 
 	var self = this;
 
-	this.all = [];
+	this.allTeams = [];
 
-	this.getTeam = getTeam;
-	function getTeam() {
+	this.getTeams = getTeams;
+	function getTeams() {
 		$http.get('http://localhost:3000/api')
 		.success(function(data) {
 			console.log(data);
-			self.all = data.roster;
-			return self.all;
+			self.allTeams = data;
+			return self.allTeams;
 		});
 	}
-	getTeam();
+	getTeams();
 
 	this.player = {};
 	this.stats = [];
