@@ -50,7 +50,7 @@ function TeamsController($http) {
 	}
 	teamStats();
 
-	this.cateogy = [];
+	this.category = [];
 	this.getCategory = getCategory;
 	function getCategory() {
 		$http.get('http://localhost:3000/api/category')
