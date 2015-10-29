@@ -10,6 +10,7 @@
 
 	<script src="../js/app.js"></script>
 	<script src="../js/controllers/teamsController.js"></script>
+	<script src="../js/directives/graphView.js"></script>
 
 </head>
 <body ng-controller="TeamsController as teams">
@@ -17,8 +18,8 @@
 	{{2+2}}
 
 
-	<form>
-		<input type="text" placeholder="Search...">
+	<form ng-submit="teams.getPlayer()">
+		<input type="text" placeholder="Player name" ng-model="teams.playerName">
 		<button type="submit">Search</button>
 	</form>
 

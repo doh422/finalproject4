@@ -22,10 +22,12 @@ function TeamsController($http) {
 
 	this.player = {};
 	this.stats = [];
+	this.playerName;
 
 	this.getPlayer = getPlayer;
 	function getPlayer() {
-		$http.get('http://localhost:3000/api/player')
+		console.log(self.playerName);
+		$http.get('http://localhost:3000/api/' + self.playerName)
 		.success(function(data) {
 			console.log(data);
 			self.player = data;
