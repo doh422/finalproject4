@@ -2,28 +2,25 @@
 
 <div class="row">
 	<div class="col-md-2"></div>
-<div class="panel panel-default col-md-8">
-	<div class="panel-body">
-		<div class="row>">
-			<div class="col-md-2">
-		<h1>{{teams.player.name.full}}</h1>
-		<br/>
-		<h2>#{{teams.player.uniform_number}} {{teams.player.eligible_positions[0]}} | {{teams.player.editorial_team_full_name}}</h2>
+		<div class="panel panel-default col-md-8">
+			<div class="panel-body">
+				<div class="row>">
+					<h1>{{teams.player.name.full}}</h1>
+					
+					<h2>#{{teams.player.uniform_number}} {{teams.player.display_position}} | {{teams.player.editorial_team_full_name}}</h2>
+			</div>
+			</div>
 		</div>
-		<img class="logo" src="https://upload.wikimedia.org/wikipedia/en/7/74/MajorLeagueBaseball.png">
-		</div>
-	</div>
-</div>
 
 </div>
 
-
-	<h1>{{teams.player.name.full}} - {{teams.player.display_position}}, {{teams.player.editorial_team_full_name}}</h1>
-	<br/>
+<div class="row">
+	<div class="col-md-1 col-lg-1"></div>
+		<div class="col-md-10">
 	<img src="{{teams.player.headshot.url}}">
-	<br/>
+	
 	<h2>Stats</h2>
-	<br/>
+	
 
 	<table class="table table-bordered">
 		<tr>
@@ -46,9 +43,13 @@
 		
 	</table>
 
-<section>
+			<section>
 
-</section>
+			</section>
+		</div>
+
+</div>
+
 
 </container>
 
