@@ -40,6 +40,7 @@
 				<tr>
 					<td>{{teams.player.stats.coverage_value}}</td>
 					<td ng-repeat="n in teams.stats">{{n.value}}</td>
+					<graph numbers="teams.homers"></graph>
 				</tr>
 				<tr>
 					<td>{{teams.player.stats.coverage_value-1}}</td>
@@ -53,7 +54,7 @@
 			</table>
 
 			<section>
-				<graph numbers="teams.stats"></graph>
+				
 			</section>
 		</div>
 

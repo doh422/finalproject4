@@ -27,6 +27,7 @@ function TeamsController($http, $q) {
 	this.playerID;
 	this.statsFourteen = [];
 	this.statsThirteen = [];
+	this.homers;
 
 	this.getPlayer = getPlayer;
 	function getPlayer() {
@@ -40,6 +41,8 @@ function TeamsController($http, $q) {
 			self.stats = data[0].data.stats.stats;
 			self.statsFourteen = data[1].data.stats.stats;
 			self.statsThirteen = data[2].data.stats.stats;
+			self.homers = data[0].data.stats.stats[9].value;
+			console.log(self.homers);
 			console.log(self.player);
 			console.log(self.stats);
 		});
