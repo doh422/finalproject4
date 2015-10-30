@@ -33,7 +33,6 @@ app.get('/api', function(req, res) {
 	yf.players.teams(teamArray,
 	// yf.roster.players(team_key,
 
-
 		function(err, data){
 			if (err) {
 				console.log(err);
@@ -74,7 +73,7 @@ app.get('/api/:player_key', function(req, res) {
 	var player_key = req.params.player_key;
 	console.log(player_key);
 
-	yf.player.stats('346.p.'+player_key,
+	yf.player.stats('346.p.' + player_key,
 		function(err, data){
 			if (err) {
 				console.log(err);
@@ -91,7 +90,7 @@ app.get('/fourteen/:player_key', function(req, res) {
 	var player_key = req.params.player_key;
 	console.log(player_key);
 
-	yf.player.stats('328.p.'+player_key,
+	yf.player.stats('328.p.' + player_key,
 		function(err, data) {
 			if (err) {
 				console.log(err);
@@ -101,6 +100,7 @@ app.get('/fourteen/:player_key', function(req, res) {
 			console.log(data);
 			res.send(data);
 		});
+});
 
 //2013 stats
 app.get('/thirteen/:player_key', function(req, res) {
@@ -115,8 +115,8 @@ app.get('/thirteen/:player_key', function(req, res) {
 			}
 			res.send(data);
 		});
-})
 });
+
 
 app.get('/', function (req, res) {
 	res.sendFile(__dirname + '/client/views/index.html');
