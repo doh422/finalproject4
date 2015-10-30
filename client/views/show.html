@@ -1,11 +1,14 @@
 <container>
-{{teams.testing}}
-<div class="jumbotron">
-  <h2>{{teams.player.name.full}}</h2>
-  <br/>
-  <h4>#{{teams.player.uniform_number}} {{teams.player.eligible_positions[0]}} | {{teams.player.editorial_team_full_name}}</h4>
 
+<div class="panel panel-default">
+	<div class="panel-body">
+		<h2>{{teams.player.name.full}}</h2>
+		<br/>
+		<h4>#{{teams.player.uniform_number}} {{teams.player.eligible_positions[0]}} | {{teams.player.editorial_team_full_name}}</h4>
+	</div>
 </div>
+
+
 	<h1>{{teams.player.name.full}} - {{teams.player.display_position}}, {{teams.player.editorial_team_full_name}}</h1>
 	<br/>
 	<img src="{{teams.player.headshot.url}}">

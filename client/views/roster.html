@@ -1,7 +1,8 @@
+<container>
 <h1>Players</h1>
 
 <div class="row">
-	<div class="col-sm-3" "col-md-3" ng-repeat="n in teams.allTeams">
+	<div class="col-sm-3 col-md-3 col-lg-2" ng-repeat="n in teams.allTeams">
 		<div class="thumbnail" ng-repeat="player in n.players ">
 			<img src="{{player.headshot.url}}">
 			<a href="#/show?id={{player.player_id}}" ng-model="playerID" ng-click="teams.setPlayerID(player)">
@@ -14,14 +15,4 @@
 		</div>
 	</div>
 </div>
-
-<!-- 	<ul id="roster" ng-repeat="n in teams.allTeams">
-		<li ng-repeat="player in n.players ">
-			<img src="{{player.headshot.url}}"> - 
-				<a href="#/show?id={{player.player_id}}" ng-model="playerID" ng-click="teams.setPlayerID(player)">
-					{{player.name.full}},
-					{{player.eligible_positions[0]}} - 
-					{{player.editorial_team_full_name}}
-				</a>
-		</li>
-	</ul> -->
+</container>
