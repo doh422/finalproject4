@@ -11,72 +11,87 @@ function graphView() {
 			numbers: '=',
 		},
 
-		link:function(scope, element, attrs) {
+		link:function(scope, elem, attrs) {
 
 			function GetGraph(numbers) {
-				
 
-				var width = 500;
-				var height = 500;
+              var barData = [{
+                'x': 'Homers',
+                'y': numbers
+              }];
+              var chart = d3.select(elem[0]).append('svg');
+              console.log(chart)
+              var vis = chart,
+                WIDTH = 300,
+                HEIGHT = 300,
+                MARGINS = {
+                  top: 20,
+                  right: 20,
+                  bottom: 20,
+                  left: 50
+                },
+                xRange = d3.scale.ordinal().rangeRoundBands([MARGINS.left, WIDTH - MARGINS.right], 0.1).domain(barData.map(function (d) {
+                  return d.x;
+                })),
 
-				//fixes issue of max width being 600 but canvas being 500
-				var widthScale = d3.scale.linear()
-					//range of values
-					.domain([0, 60])
-					//range of canvas
-					.range([0, width]);
 
-				//color scale, red for minimum value up to blue for largest
-				var color = d3.scale.linear()
-					.domain([0,60])
-					.range(["red", "blue"]);
+                yRange = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([0,
+                  d3.max(barData, function (d) {
+                    return d.y;
+                  })
+                ]),
 
-				//creating axis
-				var axis = d3.svg.axis()
-					//number of intervals on axis
-					.ticks(5)
-					.scale(widthScale);
+                xAxis = d3.svg.axis()
+                  .scale(xRange)
+                  .tickSize(5)
+                  .tickSubdivide(true),
 
-				//first establish canvas to draw on
-				var canvas = d3.select(elem[0])
-					.append("svg")
-					.attr("width", width)
-					.attr("height", height)
-					//adding group
-					.append("g")
-					//transform moves group 
-					.attr("transform", "translate(50,20)")
+                yAxis = d3.svg.axis()
+                  .scale(yRange)
+                  .tickSize(5)
+                  .orient("left")
+                  .tickSubdivide(true);
 
-					
 
-				var bars = canvas.selectAll("rect")
-					.data(dataArray)
-					.enter()
-						.append("rect")
-						//loops thru dataArray and scales to canvas
-						.attr("width", function(d) {
-							return widthScale(d);
-						})
-						.attr("height", 50)
-						.attr("fill", function(d) {
-							return color(d);
-						})
-						// d is value, i is index of data value
-						.attr("y", function(d, i) {
-							return i * 100;
-						}); 
+              vis.append('svg:g')
+                .attr('class', 'x axis')
+                .attr('transform', 'translate(0,' + (HEIGHT - MARGINS.bottom) + ')')
+                .call(xAxis);
 
-				//calling, appending, and moving axis below graph		
-				canvas.append("g")
-					.attr("transform", "translate(0,400)")
-					.call(axis);
+              vis.append('svg:g')
+                .attr('class', 'y axis')
+                .attr('transform', 'translate(' + (MARGINS.left) + ',0)')
+                .call(yAxis);
 
-				var rectangle = canvas.append("rect")
-					.attr("width", 100)
-					.attr("height", 50);
+              vis.selectAll('rect')
+                .data(barData)
+                .enter()
+                .append('rect')
+                .attr('x', function (d) {
+                  return xRange(d.x);
+                })
+                .attr('y', function (d) {
+                  return yRange(d.y);
+                })
+                .attr('width', xRange.rangeBand())
+                .attr('height', function (d) {
+                  return ((HEIGHT - MARGINS.bottom) - yRange(d.y));
+                })
+                .attr('fill', 'grey')
+                .on('mouseover',function(d){
+                  d3.select(this)
+                    .attr('fill','blue');
+                })
+                .on('mouseout',function(d){
+                  d3.select(this)
+                    .attr('fill','grey');
+                });
 
-			}
+            }
 			GetGraph(scope.numbers);
 		}
 	};
+	return directive;
 }
+
+

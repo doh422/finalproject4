@@ -25,7 +25,6 @@ function TeamsController($http, $q) {
 	this.player = {};
 	this.stats = [];
 	this.playerID;
-
 	this.statsFourteen = [];
 	this.statsThirteen = [];
 
