@@ -31,7 +31,6 @@
 			  </ul>
 			</div>
 			
-
 			<table class="table table-bordered">
 				<tr>
 					<td>Year</td>
@@ -40,7 +39,7 @@
 				<tr>
 					<td>{{teams.player.stats.coverage_value}}</td>
 					<td ng-repeat="n in teams.stats">{{n.value}}</td>
-					<graph numbers="teams.homers"></graph>
+					<graph numbers="teams.stats"></graph>
 				</tr>
 				<tr>
 					<td>{{teams.player.stats.coverage_value-1}}</td>

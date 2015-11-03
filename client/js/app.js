@@ -12,7 +12,7 @@ function MainRouter($stateProvider, $urlRouterProvider) {
 			templateUrl: 'roster.html'
 		})
 		.state('show', {
-			url: '/show',
+			url: '/show?id',
 			templateUrl: 'show.html'
 		})
 		.state('team', {

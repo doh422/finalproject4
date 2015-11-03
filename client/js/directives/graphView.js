@@ -13,9 +13,10 @@ function graphView() {
 
 		link:function(scope, elem, attrs) {
 
+			
 			function GetGraph(numbers) {
 
-				var dataArray = [20, 30, 40, 25];
+				var dataArray = [numbers, 34, 27, 25];
 				var statistics = ["2015 HRs","2014 HRs", "2013 HRs", "Avg"];
 				console.log('hello');
 				console.log(numbers);
@@ -65,9 +66,9 @@ function graphView() {
 					.range([0, width]);
 
 				//color scale, red for minimum value up to blue for largest
-				var color = d3.scale.linear()
-					.domain([0,60])
-					.range(["red", "blue"]);
+				// var color = d3.scale.linear()
+				// 	.domain([0,60])
+				// 	.attr("fill", "blue")
 
 				//creating axis
 				var axis = d3.svg.axis()
@@ -97,9 +98,7 @@ function graphView() {
 							return widthScale(d);
 						})
 						.attr("height", 50)
-						.attr("fill", function(d) {
-							return color(d);
-						})
+						.attr("fill", "blue")
 						// d is value, i is index of data value
 						.attr("y", function(d, i) {
 							return i * 100;
@@ -114,19 +113,14 @@ function graphView() {
 						.data(statistics)
 						.enter()
 							.append("text")
-							.attr("fill", "white")
+							.attr("fill", "black")
 							.attr("y", function(d, i) {
 								return i * 50 + 24;
 							})
 							.text(function(d) {
 								return d;
 							});
-				
 
-
-				var rectangle = canvas.append("rect")
-					.attr("width", 100)
-					.attr("height", 50);
 
             }
 					GetGraph(scope.numbers);

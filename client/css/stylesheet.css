@@ -1,3 +1,11 @@
 .caption {
 	text-align: center;
 }
+
+graph {
+	text-align: center;
+}
+
+.thumbnail:hover {
+	background-color: #f6f6f6;
+}

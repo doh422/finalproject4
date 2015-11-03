@@ -13,8 +13,10 @@ function TeamsController($http, $q) {
 
 	this.getTeams = getTeams;
 	function getTeams() {
+		//calling api
 		$http.get('http://localhost:3000/api')
 		.success(function(data) {
+			//returning data
 			self.allTeams = data;
 			return self.allTeams;
 		});
@@ -32,22 +34,26 @@ function TeamsController($http, $q) {
 	this.getPlayer = getPlayer;
 	function getPlayer() {
 		console.log(self.playerID);
+		// 2015 stats
 		self.fifteen = $http.get('http://localhost:3000/api/' + self.playerID, {cache: false});
+		// 2014 stats
 		self.fourteen = $http.get('http://localhost:3000/fourteen/' + self.playerID, {cache: false});
+		//2013 stats
 		self.thirteen = $http.get('http://localhost:3000/thirteen/' + self.playerID, {cache: false});
 
+		// multiple api calls
 		$q.all([self.fifteen, self.fourteen, self.thirteen]).then(function(data) {
 			self.player = data[0].data;
 			self.stats = data[0].data.stats.stats;
 			self.statsFourteen = data[1].data.stats.stats;
 			self.statsThirteen = data[2].data.stats.stats;
 			self.homers = data[0].data.stats.stats[9].value;
-			console.log(self.homers);
 			console.log(self.player);
 			console.log(self.stats);
 		});
 	}
 	getPlayer();
+	
 
 	this.production = [];
 
