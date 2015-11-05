@@ -19,7 +19,7 @@ function graphView() {
 				var dataArray = [numbers, 34, 27, 25];
 				var statistics = ["2015 HRs","2014 HRs", "2013 HRs", "Avg"];
 				console.log('hello');
-				console.log(numbers);
+				console.log(parseInt(numbers[9].value));
 
 
 				// d3.json(numbers, function(data) {

@@ -50,10 +50,11 @@ function TeamsController($http, $q) {
 			self.homers = data[0].data.stats.stats[9].value;
 			console.log(self.player);
 			console.log(self.stats);
+			console.log(self.homers);
 		});
 	}
 	getPlayer();
-	
+
 
 	this.production = [];
 

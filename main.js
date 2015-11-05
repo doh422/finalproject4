@@ -1,3 +1,5 @@
+require('dotenv').load();
+
 var express = require('express');
 var path = require('path');
 var app = express();
@@ -17,9 +19,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 
+// var yf = new YahooFantasy(
+// 	'dj0yJmk9Wjl3TGVJRUI5aVpiJmQ9WVdrOVVGWXhSMnQxTldFbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD03NQ--',
+// 	'063bb0db7bed067d504efb0c07743581b03b8e83'
+// );
+
 var yf = new YahooFantasy(
-	'dj0yJmk9Wjl3TGVJRUI5aVpiJmQ9WVdrOVVGWXhSMnQxTldFbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD03NQ--',
-	'063bb0db7bed067d504efb0c07743581b03b8e83'
+	YAHOO_CONSUMER_KEY,
+	YAHOO_CONSUMER_SECRET
 );
 
 var team_key = "328.l.34014.t.1";
